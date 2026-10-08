@@ -116,7 +116,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         // Step 2: Use forEach to go through each restaurant
         restaurants.forEach((resto, index) => {
-            restaurantList.innerHTML += `<div>${resto.name}</div>`
+            restaurantList.innerHTML +=`
+            <div class="restaurant-item">
+                <div class="restaurant-name">${resto.name}</div>
+                <div class="restaurant-cuisine">${resto.cuisine} cuisine</div>
+                <div class="restaurant-rating">Rating: ${resto.rating}&#9733;</div>
+                <div class="restaurant-price">${resto.priceRange}</div>
+            </div>`
         })
         
         // Step 3: For each restaurant, create HTML and add it to the list
@@ -147,7 +153,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         
         // Step 2: Display the filtered results
         cheapRestaurants.forEach((resto, index) => {
-            filteredList.innerHTML += `<div>${resto.name}</div>`
+            filteredList.innerHTML +=`
+            <div class="restaurant-item">
+                <div class="restaurant-name">${resto.name}</div>
+                <div class="restaurant-cuisine">${resto.cuisine} cuisine</div>
+                <div class="restaurant-rating">Rating: ${resto.rating}&#9733;</div>
+                <div class="restaurant-price">${resto.priceRange}</div>
+            </div>`
         })
         // Hint: Use forEach on the cheapRestaurants array
         
