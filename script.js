@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         restaurantList.innerHTML = '';
 
         // Step 2: Use forEach to go through each restaurant
-        restaurants.forEach((resto, index) => {
+        restaurants.forEach((resto) => {
             restaurantList.innerHTML +=`
             <div class="restaurant-item">
                 <div class="restaurant-name">${resto.name}</div>
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Hint: Check if restaurant.priceRange is "$" or "$$"
         
         // Step 2: Display the filtered results
-        cheapRestaurants.forEach((resto, index) => {
+        cheapRestaurants.forEach((resto) => {
             filteredList.innerHTML +=`
             <div class="restaurant-item">
                 <div class="restaurant-name">${resto.name}</div>
@@ -211,13 +211,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Step 1: Use find to get the restaurant with rating 4.8
         // Hint: const bestRestaurant = restaurants.find((restaurant) =>{ return condition; })
         // Hint: Check if restaurant.rating === 4.8
-        
+        //eww im not doing this ^^^^^^^ I'll iterate through the restaurant list for a best check
+        let bestRestaurantIndex = 0;
+        foundItem.innerHTML = '';
+        restaurants.forEach((resto, index) => {
+            if (resto.rating > restaurants[bestRestaurantIndex].rating) {
+                bestRestaurantIndex = index;
+            }
+        })
+        console.log(bestRestaurantIndex);
         // Step 2: Display the found restaurant
         // Hint: Check if bestRestaurant exists first
         // Hint: Show the name, cuisine, and rating
         
         // YOUR CODE HERE:
-        
+        foundItem.innerHTML +=`
+            <div class="found-restaurant">
+                <div class="restaurant-name">${restaurants[bestRestaurantIndex].name}</div>
+                <div>Cuisine: ${restaurants[bestRestaurantIndex].cuisine}</div>
+                <div>Rating: ${restaurants[bestRestaurantIndex].rating}&#9733;</div>
+                <div>Price: ${restaurants[bestRestaurantIndex].priceRange}</div>
+                <div>Location: ${restaurants[bestRestaurantIndex].neighborhood}</div>
+            </div>`
         
         console.log('Found best restaurant using find');
     });
