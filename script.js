@@ -141,10 +141,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
     filterButton.addEventListener('click', (event) =>{
         // Step 1: Use filter to get only cheap restaurants
-        // Hint: const cheapRestaurants = restaurants.filter((restaurant) =>{ return condition; })
+        filteredList.innerHTML = '';
+        const cheapRestaurants = restaurants.filter((restaurant) => restaurant.priceRange == '$$' || restaurant.priceRange == '$');
         // Hint: Check if restaurant.priceRange is "$" or "$$"
         
         // Step 2: Display the filtered results
+        cheapRestaurants.forEach((resto, index) => {
+            filteredList.innerHTML += `<div>${resto.name}</div>`
+        })
         // Hint: Use forEach on the cheapRestaurants array
         
         // YOUR CODE HERE:
