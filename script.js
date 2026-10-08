@@ -181,13 +181,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
     mapButton.addEventListener('click', (event) => {
         // Step 1: Use map to get just the restaurant names
-        // Hint: const names = restaurants.map((restaurant) =>{ return restaurant.name; })
+        const names = restaurants.map((restaurant) => restaurant.name);
         
         // Step 2: Display the names as a simple list
         // Hint: Create a <ul> and add <li> for each name
         // Hint: You can use forEach on the names array, or join() method
         
-        // YOUR CODE HERE:
+        mappedList.innerHTML = `
+        <ul class="name-list">
+            ${names.map(name => `<li>${name}</li>`).join('')}
+        </ul>
+        `;
         
         
         console.log('Showed restaurant names using map');
